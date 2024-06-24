@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Hello() {
+function HomeCircles() {
   return (
     <div>
-      hii
+      
     </div>
   )
 }
 
-export default Hello
+export default HomeCircles
