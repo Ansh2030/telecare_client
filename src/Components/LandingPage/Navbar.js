@@ -4,12 +4,23 @@ import "./navbar.css";
 import { FiMenu } from "react-icons/fi";
 import { RxCross1 } from "react-icons/rx";
 
+import { useAuth } from '../../Context/authContext';
+import { doSignOut } from '../../Firebase/auths';
+import { useNavigate } from 'react-router-dom';
+import Login from "../Login/Login";
+
 const Navbar = () => {
+  const {user, logedin} = useAuth();
+  const navigate = useNavigate();
   const [iconActive, setIconActive] = useState(false);
 
   return (
     <header>
-      <nav className={iconActive ? "nav-active" : ""}>
+
+{
+  logedin?
+  <>
+<nav>
         <h2 className="nav-logo">
           <NavLink to={"/"}>TeleCare</NavLink>
         </h2>
@@ -18,7 +29,7 @@ const Navbar = () => {
             <NavLink to={"/"}>Home</NavLink>
           </li>
           <li>
-            <NavLink to={"/doctors"}>Doctors</NavLink>
+            <NavLink to={"/doctor"}>Doctors</NavLink>
           </li>
           <li>
             <NavLink to={"/appointments"}>Appointments</NavLink>
@@ -36,18 +47,31 @@ const Navbar = () => {
             <NavLink to={"/profile"}>Profile</NavLink>
           </li>
           <li>
+            <NavLink className="btn" onClick={()=>{ doSignOut().then(()=>{ navigate('/')})}}>
+              Log Out
+            </NavLink>
+
+
+          </li>
+          {/* <li>
+            <NavLink className="btn" to={"/register"}>
+              Register
+            </NavLink>
+          </li> */}
+        </ul>
+      </nav>
+  </>:
+  <>
+<li>
             <NavLink className="btn" to={"/login"}>
               Login
             </NavLink>
           </li>
-          <li>
-            <NavLink className="btn" to={"/register"}>
-              Register
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <div className="menu-icons">
+
+  </>
+}
+      
+      {/* <div className="menu-icons">
         {!iconActive ? (
           <FiMenu
             className="menu-open"
@@ -63,7 +87,7 @@ const Navbar = () => {
             }}
           />
         )}
-      </div>
+      </div> */}
     </header>
   );
 };
