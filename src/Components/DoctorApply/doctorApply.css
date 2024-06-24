@@ -1,0 +1,61 @@
+.accounts-page button {
+    padding: 5px 10px;
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+    color: var(--secondary);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: large;
+    width: 97px;
+    height: 35px;
+    transition: 0.3s;
+    display: block;
+    margin: 20px auto; /* Center horizontally and add vertical margin */
+}
+
+.accounts-page button:hover {
+    background-color: var(--btnhover);
+    color: var(--tertiary);
+}
+
+.accounts-page {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 20px; /* Add padding to the accounts-page container */
+    margin-top: 5%;
+}
+
+.form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px; /* Increase grid gap for better spacing */
+    padding: 20px;
+}
+
+.form-data {
+    padding: 20px;
+    border: 2px solid var(--seconday);
+    border-radius: 5px;
+}
+
+.head-data {
+    margin: 10px 0;
+    color: var(--heading);
+}
+
+.data {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgba(132, 125, 125, 0.27);
+    color: var(--subHeading);
+}
+
+.data p{
+    font-size: larger;
+    padding: 10px;
+}
+.doctorRegistration h2 {
+    margin: 0; /* Reset default margin to remove any unwanted space */
+    font-size: 24px; /* Adjust font size as needed */
+    color: var(--heading); /* Use your custom heading color variable */
+}
