@@ -8,9 +8,9 @@ const DoctorCard = ({ ele }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
 
   const handleModal = () => {
-    if (token === "") {
-      return toast.error("You must log in first");
-    }
+    // if (token === "") {
+    //   return toast.error("You must log in first");
+    // }
     setModalOpen(true);
   };
 

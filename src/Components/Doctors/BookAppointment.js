@@ -4,7 +4,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
 
-const BookAppointment = ({ setModalOpen, ele }) => {
+const BookAppointment = ({ setModalOpen, doctor }) => {
   const [formDetails, setFormDetails] = useState({
     date: "",
     time: "",
@@ -12,7 +12,7 @@ const BookAppointment = ({ setModalOpen, ele }) => {
 
   const inputChange = (e) => {
     const { name, value } = e.target;
-    return setFormDetails({
+    setFormDetails({
       ...formDetails,
       [name]: value,
     });
@@ -25,10 +25,10 @@ const BookAppointment = ({ setModalOpen, ele }) => {
         axios.post(
           "/appointment/bookappointment",
           {
-            doctorId: ele?.userId?._id,
+            doctorId: doctor?.userId?._id,
             date: formDetails.date,
             time: formDetails.time,
-            doctorname: `${ele?.userId?.firstname} ${ele?.userId?.lastname}`,
+            doctorname: `${doctor?.userId?.firstname} ${doctor?.userId?.lastname}`,
           },
           {
             headers: {
@@ -44,49 +44,47 @@ const BookAppointment = ({ setModalOpen, ele }) => {
       );
       setModalOpen(false);
     } catch (error) {
-      return error;
+      console.error(error);
     }
   };
 
   return (
-    <>
-      <div className="modal flex-center">
-        <div className="modal__content">
-          <h2 className="page-heading">Book Appointment</h2>
-          <IoMdClose
-            onClick={() => {
-              setModalOpen(false);
-            }}
-            className="close-btn"
-          />
-          <div className="register-container flex-center book">
-            <form className="register-form">
-              <input
-                type="date"
-                name="date"
-                className="form-input"
-                value={formDetails.date}
-                onChange={inputChange}
-              />
-              <input
-                type="time"
-                name="time"
-                className="form-input"
-                value={formDetails.time}
-                onChange={inputChange}
-              />
-              <button
-                type="submit"
-                className="btn form-btn"
-                onClick={bookAppointment}
-              >
-                book
-              </button>
-            </form>
-          </div>
+    <div className="modal flex-center">
+      <div className="modal__content">
+        <h2 className="page-heading">Book Appointment</h2>
+        <IoMdClose
+          onClick={() => {
+            setModalOpen(false);
+          }}
+          className="close-btn"
+        />
+        <div className="register-container flex-center book">
+          <form className="register-form">
+            <input
+              type="date"
+              name="date"
+              className="form-input"
+              value={formDetails.date}
+              onChange={inputChange}
+            />
+            <input
+              type="time"
+              name="time"
+              className="form-input"
+              value={formDetails.time}
+              onChange={inputChange}
+            />
+            <button
+              type="submit"
+              className="btn form-btn"
+              onClick={bookAppointment}
+            >
+              Book
+            </button>
+          </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
