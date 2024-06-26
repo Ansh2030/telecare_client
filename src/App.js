@@ -6,6 +6,7 @@ import Doctor from './Components/Doctors/DoctorPage'
 import Login from './Components/Login/Login';
 import DoctorApply from './Components/DoctorApply/DoctorApply';
 import PatientDetails from './Components/PatientDetails/patient';
+import Appointment from './Components/Appointment/Appointment';
 
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
         <Route path="/doctorapply" element={<DoctorApply />} />
         <Route path="/login" element={<Login/>}/>
         <Route path="/patientdetails" element={<PatientDetails/>}/>
+        <Route path="/appointments" element={<Appointment/>}/>
+
         
          
       </Routes>
