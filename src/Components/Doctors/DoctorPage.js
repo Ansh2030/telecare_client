@@ -3,30 +3,48 @@ import DoctorCard from "./Card";
 import Footer from "../LandingPage/Footer";
 import Navbar from "../LandingPage/Navbar";
 import "./doctor.css";
-// import fetchData from "../helper/apiCall";
-import Loading from "./Empty";
+import Loading from "./Loading";
 import Empty from "./Empty";
 
 const Doctors = () => {
   const [doctors, setDoctors] = useState([]);
-  const [loading, setLoading] = useState(true); // Local loading state
+  const [loading, setLoading] = useState(true);
 
-  // const fetchAllDocs = async () => {
-  //   setLoading(true); // Set loading state to true
-  //   try {
-  //     const data = await fetchData("/doctor/getalldoctors");
-  //     setDoctors(data);
-  //   } catch (error) {
-  //     console.error("Error fetching doctors:", error);
-  //     // Handle error state if needed
-  //   } finally {
-  //     setLoading(false); // Set loading state to false regardless of success or failure
-  //   }
-  // };
+  useEffect(() => {
+    // Dummy data for testing
+    const dummyDoctors = [
+      {
+        _id: "1",
+        userId: { _id: "user1", firstname: "John", lastname: "Doe" },
+        specialization: "Cardiology",
+        experience: 10,
+        fees: 500,
+        isDoctor: true,
+      },
+      {
+        _id: "2",
+        userId: { _id: "user2", firstname: "Jane", lastname: "Smith" },
+        specialization: "Neurology",
+        experience: 8,
+        fees: 400,
+        isDoctor: true,
+      },
+      {
+        _id: "3",
+        userId: { _id: "user3", firstname: "Emily", lastname: "Clark" },
+        specialization: "Orthopedics",
+        experience: 12,
+        fees: 600,
+        isDoctor: true,
+      },
+    ];
 
-  // useEffect(() => {
-  //   fetchAllDocs();
-  // }, []);
+    // Simulate API call delay
+    setTimeout(() => {
+      setDoctors(dummyDoctors);
+      setLoading(false);
+    }, 1000);
+  }, []);
 
   return (
     <>
