@@ -15,7 +15,7 @@ export async function handlepay(amount, name, email, phone){
     const receiptId = "cdcdcdc"
     try{
         // const fetch = (await import('node-fetch')).default;
-        const response = await axios.post("http://localhost:8080/api/orders/order",{
+        const response = await axios.post("https://telecare-server.onrender.com/api/orders/order",{
             amount:amt,
             receipt: receiptId ,
             currency:cy
@@ -36,7 +36,7 @@ export async function handlepay(amount, name, email, phone){
             };
 
             console.log(body);
-            const validRes = await axios.post("http://localhost:8080/api/orders/validate",body)
+            const validRes = await axios.post("https://telecare-server.onrender.com/api/orders/validate",body)
                 
 console.log(validRes);
  return(validRes);

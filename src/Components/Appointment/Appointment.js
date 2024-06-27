@@ -26,7 +26,7 @@ const Appointments = () => {
 
   const fetchAppoint = async () => {
     const d = await axios.post(
-      "http://localhost:8080/api/appoint/getappointment",
+      "https://telecare-server.onrender.com/api/appoint/getappointment",
       {
         user: user.email,
       }
@@ -54,7 +54,7 @@ const Appointments = () => {
 
       // sending the update appointment api
 
-        await axios.post("http://localhost:8080/api/appoint/update",{
+        await axios.post("https://telecare-server.onrender.com/api/appoint/update",{
           patemail:ele.patemail,
         docemail: ele.docemail,
           link: roomData.url

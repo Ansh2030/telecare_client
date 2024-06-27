@@ -26,7 +26,7 @@ function DoctorApply() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/storeDoctor/store', formData);
+      const response = await axios.post('https://telecare-server.onrender.com/api/storeDoctor/store', formData);
       console.log('Doctor registration successful:', response.data);
     } catch (error) {
       console.error('Error registering doctor:', error);

@@ -34,7 +34,7 @@ function Patient() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/storepatients/patients', formData, {
+      const response = await axios.post('https://telecare-server.onrender.com/api/storepatients/patients', formData, {
         // headers: {
         //   'Content-Type': 'multipart/form-data'
         // }

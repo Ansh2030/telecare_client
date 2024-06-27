@@ -33,7 +33,7 @@ const BookAppointment = ({ setModalOpen, doctor }) => {
 const num = prompt("Enter the phone number");
 const data = handlepay(doctor.fees,doctor.patname, doctor.patemail,num);
 if(data){
-   await axios.post('http://localhost:8080/api/appointments/bookAppointment',{
+   await axios.post('https://telecare-server.onrender.com/api/appointments/bookAppointment',{
     docname: doctor.name,  
   docemail:doctor.email,
    patname: user.displayName,
