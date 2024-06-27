@@ -3,7 +3,7 @@ import DoctorCard from "./Card";
 import Footer from "../LandingPage/Footer";
 import Navbar from "../LandingPage/Navbar";
 import "./doctor.css";
-import Loading from "./Loading";
+// import Loading from "./Loading";
 import Empty from "./Empty";
 import axios from "axios";
 const Doctors = () => {
@@ -74,7 +74,7 @@ const Doctors = () => {
   return (
     <>
       <Navbar />
-      {loading && <Loading />}
+      {/* {loading && <Loading />} */}
       {!loading && (
         <section className="container doctors">
           <h2 className="page-heading">Our Doctors</h2>
