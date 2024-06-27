@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState ,useRef} from "react";
 import Empty from "../Doctors/Empty";
 import Footer from "../LandingPage/Footer";
 import Navbar from "../LandingPage/Navbar";
@@ -6,14 +6,20 @@ import Loading from "../Doctors/Loading";
 import "./Appointment.css";
 import { useAuth } from "../../Context/authContext";
 import { createRoom } from "../../api";
+// import DailyIframe from '@daily-co/daily-js';
+
 
 import axios from "axios";
 
-const Appointments = (prop) => {
+const Appointments = () => {
   const { user, logedin } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
+
   const [roomUrl, setRoomUrl] = useState(""); // State to store room URL
+const [transcripts, setTranscripts] = useState([]);
+const callEl = useRef(null);
+const [callFrame, setCallFrame] = useState(null);
 
   // Dummy userId for testing
   const userId = "doc1";
@@ -34,31 +40,6 @@ const Appointments = (prop) => {
     setLoading(true);
     fetchAppoint();
 
-    // Dummy data for testing
-    // const dummyAppointments = [
-    //   {
-    //     _id: "1",
-    //     doctorId: { _id: "doc1", firstname: "John", lastname: "Doe" },
-    //     userId: { _id: "user1", firstname: "Jane", lastname: "Smith" },
-    //     date: "2024-07-01",
-    //     time: "10:00 AM",
-    //     createdAt: "2024-06-25T10:00:00.000Z",
-    //     updatedAt: "2024-06-25T10:00:00.000Z",
-    //     status: "Pending",
-    //   },
-    //   {
-    //     _id: "2",
-    //     doctorId: { _id: "doc2", firstname: "Emily", lastname: "Clark" },
-    //     userId: { _id: "user2", firstname: "Michael", lastname: "Brown" },
-    //     date: "2024-07-02",
-    //     time: "11:00 AM",
-    //     createdAt: "2024-06-26T11:00:00.000Z",
-    //     updatedAt: "2024-06-26T11:00:00.000Z",
-    //     status: "Completed",
-    //   },
-    // ];
-    // setAppointments(dummyAppointments);
-
     setLoading(false);
   }, []);
 
@@ -67,13 +48,7 @@ const Appointments = (prop) => {
       const roomData = await createRoom();
       console.log(roomData.url); // Log room data to check the response
 
-      // Update appointment status and set room URL
-      // const updatedAppointments = appointments.map((appointment) =>
-      //   appointment._id === ele._id
-      //     ? { ...appointment, status: "Completed", roomUrl: roomData.url }
-      //     : appointment
-      // );
-      // setAppointments(updatedAppointments);
+    
       setRoomUrl(roomData.url); // Set the room URL
 
       // sending the update appointment api
@@ -91,6 +66,47 @@ const Appointments = (prop) => {
       console.error("Failed to create room", error);
     }
   };
+
+
+
+
+    // Set up the Daily.co call frame for transcription
+    // useEffect(() => {
+    //   if (roomUrl) {
+    //     const frame = DailyIframe.createFrame(callEl.current, {
+    //       iframeStyle: { width: '100%', height: '100%' }
+    //     });
+  
+    //     frame.join({ url: roomUrl });
+  
+        
+    //     frame.on('app-message', (message) => {
+    //       if (message?.fromId === 'transcription' && message.data?.is_final) {
+    //         setTranscripts(prevTranscripts => [
+    //           ...prevTranscripts,
+    //           `${message.data.user_name}: ${message.data.text}`
+    //         ]);
+    //       }
+    //     });
+  
+    //     setCallFrame(frame);
+  
+    //     return () => {
+    //       frame.leave();
+    //     };
+    //   }
+    // }, [roomUrl]);
+  
+    // const startTranscription = () => {
+    //   callFrame.startTranscription();
+    //   setTranscripts(prevTranscripts => [...prevTranscripts, "Transcription started"]);
+
+    // };
+  
+    // const stopTranscription = () => {
+    //   callFrame.stopTranscription();
+    //   setTranscripts(prevTranscripts => [...prevTranscripts, "Transcription stopped"]);
+    // };
 
   return (
     <>
@@ -171,6 +187,27 @@ const Appointments = (prop) => {
           )}
         </section>
       )}
+
+
+{/* {roomUrl && (
+        <div style={{ margin: '20px', padding: '20px', backgroundColor: '#333', borderRadius: '10px' }}>
+          <div ref={callEl} style={{ width: '100%', height: '56vw', position: 'relative' }}></div>
+          <div style={{ display: 'flex', justifyContent: 'center', margin: '20px 0' }}>
+            <button onClick={startTranscription} style={{ padding: '10px 20px', fontSize: '16px', border: 'none', cursor: 'pointer', margin: '0 10px', borderRadius: '5px', backgroundColor: 'green', color: 'white' }}>
+              Start transcription
+            </button>
+            <button onClick={stopTranscription} style={{ padding: '10px 20px', fontSize: '16px', border: 'none', cursor: 'pointer', margin: '0 10px', borderRadius: '5px', backgroundColor: 'red', color: 'white' }}>
+              Stop transcription
+            </button>
+          </div>
+          {transcripts.map((transcript, index) => (
+            <p key={index} style={{ margin: '0 0 10px', color: 'white' }}>{transcript}</p>
+          ))}
+        </div>
+      )} */}
+
+
+
       <Footer />
     </>
   );
