@@ -1,11 +1,11 @@
 import React from "react";
-import image from "./images/aboutimg.jpg";
+import image from "./images/aboutimg.png";
 
 const AboutUs = () => {
   return (
     <>
       <section className="container">
-        <h2 className="page-heading about-heading">About Us</h2>
+        <h1 className="page-heading about-heading">About Us</h1>
         <div className="about">
           <div className="hero-img">
             <img
@@ -15,13 +15,8 @@ const AboutUs = () => {
           </div>
           <div className="hero-content">
             <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Quibusdam tenetur doloremque molestias repellat minus asperiores
-              in aperiam dolor, quaerat praesentium. Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Voluptatibus, repudiandae! Lorem
-              ipsum dolor sit amet consectetur adipisicing elit. Provident
-              quibusdam doloremque ex? Officia atque ab dolore? Tempore totam
-              non ea!
+            Our mission is to make quality healthcare accessible to everyone, regardless of location. 
+            We strive to provide a seamless and secure platform where patients can receive expert medical consultations without the need for travel or long waiting times.
             </p>
           </div>
         </div>

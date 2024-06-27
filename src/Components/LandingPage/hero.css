@@ -49,6 +49,10 @@
     margin-top: 2rem;
     align-items: center;
   }
+  .hero-content p{
+    font-size: 2.5rem;
+
+  }
   .hero-content h1 {
     text-align: center;
   }
