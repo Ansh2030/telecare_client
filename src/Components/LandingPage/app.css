@@ -10,6 +10,7 @@
   --font-family: "Poppins", sans-serif;
 }
 
+
 * {
   margin: 0;
   padding: 0;
@@ -50,6 +51,7 @@ h6 {
 
 p {
   color: var(--light-text-color);
+  font-size: 1.5rem;
 }
 
 .flex-center {

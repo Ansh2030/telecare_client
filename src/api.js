@@ -12,7 +12,7 @@ export async function createRoom() {
       body: JSON.stringify(options),
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + 'eeeb3c6cddd70ff9b08741776062e7a0128920b9806399a07dbcd893e2a82cb3',
+        Authorization: 'Bearer eeeb3c6cddd70ff9b08741776062e7a0128920b9806399a07dbcd893e2a82cb3',
       },
     });
 

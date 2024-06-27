@@ -39,8 +39,10 @@ function Patient() {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
+      
+      
       });
-      console.log('Success:', response.data);
+      // console.log('Success:', response.data);
       // Handle success or redirect to success page
     } catch (error) {
       console.error('Error:', error);
@@ -105,5 +107,4 @@ function Patient() {
     </>
   );
 }
-
 export default Patient;

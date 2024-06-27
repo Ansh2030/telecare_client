@@ -50,7 +50,7 @@ const Doctors = () => {
   const fetchAllDocs = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8080/api/getDoctors/doctor');
+      const response = await axios.get('https://telecare-server.onrender.com/api/getDoctors/doctor');
      
       // const data = await response.json();
       setDoctors(response.data);
