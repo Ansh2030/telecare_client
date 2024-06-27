@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import BookAppointment from "./BookAppointment";
 import { toast } from "react-hot-toast";
 
-const DoctorCard = ({ ele }) => {
+const DoctorCard = ({ ele , doctor}) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
 
@@ -11,6 +11,7 @@ const DoctorCard = ({ ele }) => {
     // if (token === "") {
     //   return toast.error("You must log in first");
     // }
+    console.log(doctor);
     setModalOpen(true);
   };
 
@@ -19,29 +20,29 @@ const DoctorCard = ({ ele }) => {
       <div className={`card-img flex-center`}>
         <img
           src={
-            ele?.userId?.pic ||
+            doctor?.userId?.pic ||
             "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg"
           }
           alt="profile"
         />
       </div>
       <h3 className="card-name">
-        Dr. {ele?.userId?.firstname + " " + ele?.userId?.lastname}
+         {doctor?.name}
       </h3>
       <p className="specialization">
         <strong>Specialization: </strong>
-        {ele?.specialization}
+        {doctor?.specialization}
       </p>
       <p className="experience">
         <strong>Experience: </strong>
-        {ele?.experience}yrs
+        {doctor?.experience}yrs
       </p>
       <p className="fees">
-        <strong>Fees per consultation: </strong>$ {ele?.fees}
+        <strong>Fees per consultation: </strong>$ {doctor?.fees}
       </p>
       <p className="phone">
         <strong>Phone: </strong>
-        {ele?.userId?.mobile}
+        {doctor?.userId?.mobile}
       </p>
       <button
         className="btn appointment-btn"
@@ -53,6 +54,8 @@ const DoctorCard = ({ ele }) => {
         <BookAppointment
           setModalOpen={setModalOpen}
           ele={ele}
+          doctor= {doctor}
+          
         />
       )}
     </div>

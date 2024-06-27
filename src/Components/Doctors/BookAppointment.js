@@ -3,45 +3,67 @@ import "./bookappointment.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
+import { useAuth } from '../../Context/authContext';
+
 
 const BookAppointment = ({ setModalOpen, doctor }) => {
+  const {user, logedin} = useAuth();
+
   const [formDetails, setFormDetails] = useState({
     date: "",
     time: "",
   });
 
   const inputChange = (e) => {
-    const { name, value } = e.target;
+    // const { name, value } = e.target;
     setFormDetails({
       ...formDetails,
-      [name]: value,
+      // [name]: value,
     });
   };
 
   const bookAppointment = async (e) => {
     e.preventDefault();
+    // console.log("this is doctor",doctor);
+    // console.log("this is user", user)
     try {
-      await toast.promise(
-        axios.post(
-          "/appointment/bookappointment",
-          {
-            doctorId: doctor?.userId?._id,
-            date: formDetails.date,
-            time: formDetails.time,
-            doctorname: `${doctor?.userId?.firstname} ${doctor?.userId?.lastname}`,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        ),
-        {
-          success: "Appointment booked successfully",
-          error: "Unable to book appointment",
-          loading: "Booking appointment...",
-        }
-      );
+      // await toast.promise(
+        // axios.post(
+        //   "/appointment/bookappointment",
+        //   {
+        //     doctorId: doctor?.userId?._id,
+        //     date: formDetails.date,
+        //     time: formDetails.time,
+        //     doctorname: `${doctor?.userId?.firstname} ${doctor?.userId?.lastname}`,
+        //   },
+        //   {
+        //     headers: {
+        //       Authorization: `Bearer ${localStorage.getItem("token")}`,
+        //     },
+        //   }
+        // ),
+        // {
+        //   success: "Appointment booked successfully",
+        //   error: "Unable to book appointment",
+        //   loading: "Booking appointment...",
+
+        // }
+const response = await axios.post('http://localhost:8080/api/appointments/bookAppointment',{
+  doctorEmail:doctor.email,
+ docName: doctor.name,
+ patName: user.displayName,
+ patEmail: user.email,
+ date:formDetails.date,
+ time:formDetails.time
+});
+
+console.log("this is hbhbhcbdhcb",response);
+
+
+
+
+
+      // );
       setModalOpen(false);
     } catch (error) {
       console.error(error);
