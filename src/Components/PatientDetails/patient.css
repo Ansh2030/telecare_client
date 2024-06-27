@@ -64,6 +64,6 @@
     color: var(--heading); /* Use your custom heading color variable */
 }
 .button-container{
-    position: relative;
-    right: 50px;
+    display: flex;
+    justify-content: center;
 }
