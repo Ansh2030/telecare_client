@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
-import { FiMenu } from "react-icons/fi";
-import { RxCross1 } from "react-icons/rx";
 
 import { useAuth } from '../../Context/authContext';
 import { doSignOut } from '../../Firebase/auths';
 import { useNavigate } from 'react-router-dom';
-import Login from "../Login/Login";
 
 const Navbar = () => {
   const {user, logedin} = useAuth();
