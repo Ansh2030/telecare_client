@@ -1,9 +1,16 @@
 import React from 'react'
-import axios from "axios";
+import axios from "axios";//amount, name, email, phone
 import { resolvePath } from 'react-router-dom';
-async function handlepay(e){
+
+// function handleRedirect(paydone){
+//     return(
+//         <
+//     )
+// }
+
+export async function handlepay(amount, name, email, phone){
    
-    const amt = 400;
+    const amt = 200;
     const cy = "INR"
     const receiptId = "cdcdcdc"
     try{
@@ -32,11 +39,12 @@ async function handlepay(e){
             const validRes = await axios.post("http://localhost:8080/api/orders/validate",body)
                 
 console.log(validRes);
+ return(validRes);
             },
             "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
-                "name": "Gaurav Kumar", //your customer's name
-                "email": "gaurav.kumar@example.com", 
-                "contact": "9000090000"  //Provide the customer's phone number for better conversion rates 
+                "name": "name", //your customer's name
+                "email": "email", 
+                "contact": "252525255"  //Provide the customer's phone number for better conversion rates 
             },
             "notes": {
                 "address": "Razorpay Corporate Office"
@@ -57,7 +65,7 @@ console.log(validRes);
         });
 
         rzp1.open();
-        e.preventDefault();
+        // e.preventDefault();
     }//closin the try block
     catch(e){
         console.log(e.message
