@@ -31,14 +31,18 @@ header {
   .nav-links {
     display: flex;
     gap: 2rem;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    color: var(--bold-text-color);
   }
+
   
   .nav-links .btn {
     color: var(--bold-text-color);
-    font-size: 0.8rem;
+    font-size: 1rem;
     padding: 0.4rem 0.8rem;
   }
-  
+
   .menu-icons {
     display: none;
     z-index: 100;
@@ -76,6 +80,7 @@ header {
       z-index: 20;
       gap: 3rem;
       transition: all 0.3s linear;
+
     }
     .nav-active .nav-links {
       transform: translateX(0%);
