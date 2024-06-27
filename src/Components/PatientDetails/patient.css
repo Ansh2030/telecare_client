@@ -33,7 +33,7 @@
 
 .form-data {
     padding: 20px;
-    border: 2px solid var(--seconday);
+    /* border: 2px solid var(--seconday); */
     border-radius: 5px;
 }
 
@@ -49,7 +49,11 @@
     background-color: rgba(132, 125, 125, 0.27);
     color: var(--subHeading);
 }
-
+.data input{
+    width: 100%;
+    border: none;
+    background-color: transparent;
+}
 .data p{
     font-size: larger;
     padding: 10px;
