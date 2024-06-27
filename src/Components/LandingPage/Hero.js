@@ -1,5 +1,5 @@
 import React from "react";
-import image from "./images/heroimg.jpg";
+import image from "./images/heroimg.png";
 import "./hero.css";
 
 const Hero = () => {
@@ -7,13 +7,12 @@ const Hero = () => {
     <section className="hero">
       <div className="hero-content">
         <h1>
-          Your Health, <br />
-          Our Responsibility
+        Telecare: Your Health <br/> Your Home, Your Way
+
         </h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-          tenetur doloremque molestias repellat minus asperiores in aperiam
-          dolor, quaerat praesentium.
+        Telecare connects patients with experienced doctors through one-on-one online appointments, ensuring personalized and attentive care without the need for travel.
+        
         </p>
       </div>
       <div className="hero-img">
