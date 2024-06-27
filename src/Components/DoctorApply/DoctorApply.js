@@ -60,6 +60,7 @@ function DoctorApply() {
                   <input
                     type='number'
                     name='age'
+                    
                     value={formData.age}
                     onChange={handleChange}
                   />
@@ -101,7 +102,7 @@ function DoctorApply() {
                 </div>
               </div>
               <div>
-                <div className='head-data'><h3>Years Of years</h3></div>
+                <div className='head-data'><h3>Years Of Experience</h3></div>
                 <div className='data'>
                   <input
                     type='number'
@@ -125,7 +126,7 @@ function DoctorApply() {
             </div>
           </div>
           <div className='button-container'>
-            <button type='submit'>Apply</button>
+            <button  type='submit'>Submit</button>
           </div>
         </form>
       </div>

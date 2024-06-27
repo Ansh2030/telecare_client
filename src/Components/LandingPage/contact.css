@@ -4,10 +4,36 @@
   flex-direction: column;
   gap: 2rem;
   width: 40%;
+
+  margin-top: 100px;
 }
 
 .apply-doctor {
   height: 90vh;
+}
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+  height: auto;
+  margin-bottom: 300px;
+
+}
+
+.register-form input {
+  border-radius: 50px ;
+  padding: 15px;
+  border: none;
+}
+textarea{
+  padding: 20px;
+  border: none;
+  border-radius: 30px;
+}
+.btn {
+  margin-bottom: 50px;
+  border-radius: 100px;
 }
 
 @media (max-width: 1000px) {
