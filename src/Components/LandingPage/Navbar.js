@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
 
@@ -7,9 +7,9 @@ import { doSignOut } from '../../Firebase/auths';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
-  const {user, logedin} = useAuth();
+  const { logedin} = useAuth();
   const navigate = useNavigate();
-  const [iconActive, setIconActive] = useState(false);
+  // const [iconActive, setIconActive] = useState(false);
 
   return (
     <header>

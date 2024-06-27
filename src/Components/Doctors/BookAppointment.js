@@ -8,7 +8,7 @@ import { handlepay } from "../Appointment/Payments";
 
 
 const BookAppointment = ({ setModalOpen, doctor }) => {
-  const {user, logedin} = useAuth();
+  const {user} = useAuth();
 
   const [formDetails, setFormDetails] = useState({
     date: "",
@@ -33,7 +33,7 @@ const BookAppointment = ({ setModalOpen, doctor }) => {
 const num = prompt("Enter the phone number");
 const data = handlepay(doctor.fees,doctor.patname, doctor.patemail,num);
 if(data){
-  const response = await axios.post('http://localhost:8080/api/appointments/bookAppointment',{
+   await axios.post('http://localhost:8080/api/appointments/bookAppointment',{
     docname: doctor.name,  
   docemail:doctor.email,
    patname: user.displayName,

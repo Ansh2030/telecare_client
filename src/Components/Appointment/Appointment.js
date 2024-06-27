@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, { useEffect, useState } from "react";
 import Empty from "../Doctors/Empty";
 import Footer from "../LandingPage/Footer";
 import Navbar from "../LandingPage/Navbar";
@@ -16,13 +16,13 @@ const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const [roomUrl, setRoomUrl] = useState(""); // State to store room URL
-const [transcripts, setTranscripts] = useState([]);
-const callEl = useRef(null);
-const [callFrame, setCallFrame] = useState(null);
+  //  const [roomUrl, setRoomUrl] = useState(""); // State to store room URL
+// const [transcripts, setTranscripts] = useState([]);
+// const callEl = useRef(null);
+// const [callFrame, setCallFrame] = useState(null);
 
   // Dummy userId for testing
-  const userId = "doc1";
+  // const userId = "doc1";
 
   const fetchAppoint = async () => {
     const d = await axios.post(
@@ -34,14 +34,15 @@ const [callFrame, setCallFrame] = useState(null);
     console.log(d);
     setAppointments(d.data);
   };
-
+// eslint-disable-next-line
   useEffect(() => {
     console.log(logedin);
     setLoading(true);
     fetchAppoint();
 
     setLoading(false);
-  }, []);
+    // eslint-disable-next-line
+  },[] );
 
   const complete = async (ele) => {
     try {
@@ -49,17 +50,17 @@ const [callFrame, setCallFrame] = useState(null);
       console.log(roomData.url); // Log room data to check the response
 
     
-      setRoomUrl(roomData.url); // Set the room URL
+      // setRoomUrl(roomData.url); // Set the room URL
 
       // sending the update appointment api
 
-        const updated = await axios.post("http://localhost:8080/api/appoint/update",{
+        await axios.post("http://localhost:8080/api/appoint/update",{
           patemail:ele.patemail,
         docemail: ele.docemail,
           link: roomData.url
         })
 
-
+          
       // Open the room URL in a new tab
       window.open(roomData.url, "_blank");
     } catch (error) {
@@ -152,7 +153,7 @@ const [callFrame, setCallFrame] = useState(null);
                       <td>{ele.createdAt.split("T")[0]}</td>
                       <td>{ele.updatedAt.split("T")[1].split(".")[0]}</td>
                       {/* <td>{ele.status}</td> */}
-                      {user.email==ele.docemail ? (
+                      {user.email===ele.docemail ? (
                         <td>
                           <button
                             className={`btn user-btn accept-btn ${
@@ -170,7 +171,7 @@ const [callFrame, setCallFrame] = useState(null);
                             className={`btn user-btn accept-btn ${
                               ele.status === "Completed" ? "disable-btn" : ""
                             }`}
-                            disabled={ele.link == ""}
+                            disabled={ele.link === ""}
                             onClick={() => window.open(ele.link, "_blank")}
                           >
                             Join Session
