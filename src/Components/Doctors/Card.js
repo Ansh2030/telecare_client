@@ -16,6 +16,7 @@ const DoctorCard = ({ ele , doctor}) => {
   };
 
   return (
+    <>
     <div className={`card`}>
       <div className={`card-img flex-center`}>
         <img
@@ -50,15 +51,19 @@ const DoctorCard = ({ ele , doctor}) => {
       >
         Book Appointment
       </button>
-      {modalOpen && (
-        <BookAppointment
-          setModalOpen={setModalOpen}
-          ele={ele}
-          doctor= {doctor}
-          
-        />
-      )}
+      
     </div>
+  
+    {modalOpen && (
+      <BookAppointment
+        setModalOpen={setModalOpen}
+        ele={ele}
+        doctor= {doctor}
+        
+      />
+    )}
+    
+    </>
   );
 };
 
