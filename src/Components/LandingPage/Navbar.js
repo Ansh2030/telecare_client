@@ -34,9 +34,7 @@ const Navbar = () => {
           <li>
             <NavLink to={"/appointments"}>Appointments</NavLink>
           </li>
-          <li>
-            <NavLink to={"/notifications"}>Notifications</NavLink>
-          </li>
+         
           <li>
             <NavLink to={"/doctorapply"}>Apply for doctor</NavLink>
           </li>
@@ -44,7 +42,7 @@ const Navbar = () => {
             <NavLink to={"/#contact"}>Contact Us</NavLink>
           </li>
           <li>
-            <NavLink to={"/profile"}>Profile</NavLink>
+            <NavLink to={"/patientdetails"}>Profile</NavLink>
           </li>
           <li>
             <NavLink className="btn" onClick={()=>{ doSignOut().then(()=>{ navigate('/')})}}>
