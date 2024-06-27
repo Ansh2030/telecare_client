@@ -49,13 +49,21 @@ const BookAppointment = ({ setModalOpen, doctor }) => {
 
         // }
 const response = await axios.post('http://localhost:8080/api/appointments/bookAppointment',{
-  doctorEmail:doctor.email,
- docName: doctor.name,
- patName: user.displayName,
- patEmail: user.email,
+  docname: doctor.name,  
+docemail:doctor.email,
+ patname: user.displayName,
+ patemail: user.email,
  date:formDetails.date,
  time:formDetails.time
+ link:""
 });
+// docname: String,
+// docemail: string,
+// patname:String,
+// patemail:String,
+// date:String,
+// time:String,
+// link:String
 
 console.log("this is hbhbhcbdhcb",response);
 
