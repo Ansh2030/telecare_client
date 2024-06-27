@@ -76,3 +76,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ### Documentation
 https://docs.google.com/document/d/1avc6XnUmgRmhd_HYDbvAo5V4rqaWZK36/edit?usp=sharing&ouid=114715392231448969610&rtpof=true&sd=true
+
+### Demo Video
+https://drive.google.com/file/d/1YB3HDyia_emOGvVtyVIhb1cISKOgyHRt/view?usp=sharing
