@@ -54,7 +54,7 @@ docemail:doctor.email,
  patname: user.displayName,
  patemail: user.email,
  date:formDetails.date,
- time:formDetails.time
+ time:formDetails.time,
  link:""
 });
 // docname: String,
