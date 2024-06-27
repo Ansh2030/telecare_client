@@ -12,7 +12,7 @@ function Patient() {
     email: '',
     address: '',
     phone: '',
-     file: ''
+    //  file: ''
   });
 
   const handleInputChange = (e) => {
@@ -23,13 +23,13 @@ function Patient() {
     });
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setFormData({
-      ...formData,
-      file
-    });
-  };
+  // const handleFileChange = (e) => {
+  //   const file = e.target.files[0];
+  //   setFormData({
+  //     ...formData,
+  //     file
+  //   });
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -92,7 +92,7 @@ function Patient() {
             </div>
             <div>
               <div className='head-data'><h3>Previous Prescription (if any)</h3></div>
-              <div className='data'><input type='file' name='file' onChange={handleFileChange} /></div>
+              <div className='data'><input type='file' name='file' onChange={handleInputChange} /></div>
             </div>
           </div>
           <div className='button-container'>
