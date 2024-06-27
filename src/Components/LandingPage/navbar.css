@@ -7,6 +7,7 @@ header {
     /* padding: 10px 10%; */
     /* height: 72px; */
     position: sticky;
+    height:15vh;
     top: 0%;
     left: 0%;
     background-color: var(--light-blue);
@@ -32,7 +33,7 @@ header {
     display: flex;
     gap: 2rem;
     font-size: 1.2rem;
-    margin-top: 1.5rem;
+    margin-top: 3.4rem;
     color: var(--bold-text-color);
   }
 

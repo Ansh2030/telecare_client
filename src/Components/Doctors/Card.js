@@ -39,12 +39,12 @@ const DoctorCard = ({ ele , doctor}) => {
         {doctor?.experience}yrs
       </p>
       <p className="fees">
-        <strong>Fees per consultation: </strong>$ {doctor?.fees}
+        <strong>Fees per consultation: </strong>INR {doctor?.fees}
       </p>
-      <p className="phone">
+      {/* <p className="phone">
         <strong>Phone: </strong>
         {doctor?.userId?.mobile}
-      </p>
+      </p> */}
       <button
         className="btn appointment-btn"
         onClick={handleModal}

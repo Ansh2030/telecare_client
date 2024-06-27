@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Empty from "../Doctors/Empty";
 import Footer from "../LandingPage/Footer";
 import Navbar from "../LandingPage/Navbar";
-import Loading from "../Doctors/Loading";
+// import Loading from "../Doctors/Loading";
 import "./Appointment.css";
 import { useAuth } from "../../Context/authContext";
 import { createRoom } from "../../api";
@@ -113,7 +113,8 @@ const Appointments = () => {
     <>
       <Navbar />
       {loading ? (
-        <Loading />
+        // <Loading /> 
+        <></>
       ) : (
         <section className="container notif-section">
           <h2 className="page-heading">Your Appointments</h2>
