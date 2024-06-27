@@ -9,7 +9,7 @@ import { createRoom } from "../../api";
 
 import axios from "axios";
 
-const Appointments = () => {
+const Appointments = (prop) => {
   const { user, logedin } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -154,7 +154,7 @@ const Appointments = () => {
                             className={`btn user-btn accept-btn ${
                               ele.status === "Completed" ? "disable-btn" : ""
                             }`}
-                            disabled={ele.status === "Completed"}
+                            disabled={ele.link == ""}
                             onClick={() => window.open(ele.link, "_blank")}
                           >
                             Join Session

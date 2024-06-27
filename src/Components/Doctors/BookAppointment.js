@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./bookappointment.css";
 import axios from "axios";
-import toast from "react-hot-toast";
+// import toast from "react-hot-toast";
 import { IoMdClose } from "react-icons/io";
 import { useAuth } from '../../Context/authContext';
+import { handlepay } from "../Appointment/Payments";
 
 
 const BookAppointment = ({ setModalOpen, doctor }) => {
@@ -27,45 +28,25 @@ const BookAppointment = ({ setModalOpen, doctor }) => {
     // console.log("this is doctor",doctor);
     // console.log("this is user", user)
     try {
-      // await toast.promise(
-        // axios.post(
-        //   "/appointment/bookappointment",
-        //   {
-        //     doctorId: doctor?.userId?._id,
-        //     date: formDetails.date,
-        //     time: formDetails.time,
-        //     doctorname: `${doctor?.userId?.firstname} ${doctor?.userId?.lastname}`,
-        //   },
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${localStorage.getItem("token")}`,
-        //     },
-        //   }
-        // ),
-        // {
-        //   success: "Appointment booked successfully",
-        //   error: "Unable to book appointment",
-        //   loading: "Booking appointment...",
 
-        // }
-const response = await axios.post('http://localhost:8080/api/appointments/bookAppointment',{
-  docname: doctor.name,  
-docemail:doctor.email,
- patname: user.displayName,
- patemail: user.email,
- date:formDetails.date,
- time:formDetails.time,
- link:""
-});
-// docname: String,
-// docemail: string,
-// patname:String,
-// patemail:String,
-// date:String,
-// time:String,
-// link:String
+//go for payment 
+const num = prompt("Enter the phone number");
+const data = handlepay(doctor.fees,doctor.patname, doctor.patemail,num);
+if(data){
+  const response = await axios.post('http://localhost:8080/api/appointments/bookAppointment',{
+    docname: doctor.name,  
+  docemail:doctor.email,
+   patname: user.displayName,
+   patemail: user.email,
+   date:formDetails.date,
+   time:formDetails.time,
+   link:""
+  });
 
-console.log("this is hbhbhcbdhcb",response);
+  alert("Your appointment is booked successfully");
+} 
+
+// console.log("this is hbhbhcbdhcb",response);
 
 
 
@@ -109,7 +90,7 @@ console.log("this is hbhbhcbdhcb",response);
               className="btn form-btn"
               onClick={bookAppointment}
             >
-              Book
+             Pay & Book
             </button>
           </form>
         </div>
