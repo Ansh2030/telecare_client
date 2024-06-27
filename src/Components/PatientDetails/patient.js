@@ -39,9 +39,13 @@ function Patient() {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
+       
       
       
       });
+      if(response){
+        alert("Succesfully added the info")
+      }
       // console.log('Success:', response.data);
       // Handle success or redirect to success page
     } catch (error) {
@@ -98,8 +102,8 @@ function Patient() {
               <div className='data'><input type='file' name='prescription' onChange={handleFileChange} /></div>
             </div>
           </div>
-          <div className='button-container'>
-            <button type='submit'>Submit</button>
+          <div className='button-container '>
+            <button   type='submit'>Submit</button>
           </div>
         </form>
       </div>

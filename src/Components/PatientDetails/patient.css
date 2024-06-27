@@ -63,3 +63,7 @@
     font-size: 24px; /* Adjust font size as needed */
     color: var(--heading); /* Use your custom heading color variable */
 }
+.button-container{
+    position: relative;
+    right: 50px;
+}
