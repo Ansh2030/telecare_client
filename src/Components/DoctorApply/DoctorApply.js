@@ -1,60 +1,3 @@
-// import React from 'react';
-// import "./doctorApply.css";
-// import Navbar from '../LandingPage/Navbar';
-// import Footer from '../LandingPage/Footer';
-// function DoctorApply() {
-//   return (
-//     <>
-//     <Navbar/>
-//     <div className='accounts-page'>
-//       <div className='h2'>
-//         <h2>Doctor Registraion</h2>
-//       </div>
-//       <div className='form-container'>
-//         <div className='form-data'>
-//           <div>
-//             <div className='head-data'><h3>Full Name</h3></div>
-//             <div className='data'><p></p></div>
-//           </div>
-//           <div>
-//             <div className='head-data'><h3>Age</h3></div>
-//             <div className='data'><p></p></div>
-//           </div>
-//           <div>
-//             <div className='head-data'><h3>Gender</h3></div>
-//             <div className='data'><p></p></div>
-//           </div>
-//           <div>
-//             <div className='head-data'><h3>Email ID</h3></div>
-//             <div className='data'><p></p></div>
-//           </div>
-//         </div>
-//         <div className='form-data'>
-//           <div>
-//             <div className='head-data'><h3>Specialization</h3></div>
-//             <div className='data'><p></p></div>
-//           </div>
-//           <div>
-//             <div className='head-data'><h3>Years Of years</h3></div>
-//             <div className='data'><p></p></div>
-//           </div>
-//           <div>
-//             <div className='head-data'><h3>Fees</h3></div>
-//             <div className='data'><p></p></div>
-//           </div>
-//         </div>
-//       </div>
-//       <div className='button-container'>
-//         <button on>Apply</button>
-//       </div>
-//     </div>
-//     <Footer></Footer>
-//     </>
-//   );
-// }
-
-// export default DoctorApply;
-
 import React, { useState } from 'react';
 import axios from 'axios';
 import './doctorApply.css';
@@ -83,7 +26,7 @@ function DoctorApply() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8080/api/storeDoctor/store', formData);
+      const response = await axios.post('https://telecare-server.onrender.com/api/storeDoctor/store', formData);
       console.log('Doctor registration successful:', response.data);
     } catch (error) {
       console.error('Error registering doctor:', error);
@@ -117,6 +60,7 @@ function DoctorApply() {
                   <input
                     type='number'
                     name='age'
+                    
                     value={formData.age}
                     onChange={handleChange}
                   />
@@ -158,7 +102,7 @@ function DoctorApply() {
                 </div>
               </div>
               <div>
-                <div className='head-data'><h3>Years Of years</h3></div>
+                <div className='head-data'><h3>Years Of Experience</h3></div>
                 <div className='data'>
                   <input
                     type='number'
@@ -182,7 +126,7 @@ function DoctorApply() {
             </div>
           </div>
           <div className='button-container'>
-            <button type='submit'>Apply</button>
+            <button  type='submit'>Submit</button>
           </div>
         </form>
       </div>

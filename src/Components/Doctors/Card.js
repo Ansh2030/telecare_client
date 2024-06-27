@@ -1,11 +1,11 @@
 import "./Card.css";
 import React, { useState } from "react";
 import BookAppointment from "./BookAppointment";
-import { toast } from "react-hot-toast";
+// import { toast } from "react-hot-toast";
 
 const DoctorCard = ({ ele , doctor}) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  // const [token, setToken] = useState(localStorage.getItem("token") || "");
 
   const handleModal = () => {
     // if (token === "") {

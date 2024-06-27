@@ -1,18 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./navbar.css";
-import { FiMenu } from "react-icons/fi";
-import { RxCross1 } from "react-icons/rx";
 
 import { useAuth } from '../../Context/authContext';
 import { doSignOut } from '../../Firebase/auths';
 import { useNavigate } from 'react-router-dom';
-import Login from "../Login/Login";
 
 const Navbar = () => {
-  const {user, logedin} = useAuth();
+  const { logedin} = useAuth();
   const navigate = useNavigate();
-  const [iconActive, setIconActive] = useState(false);
+  // const [iconActive, setIconActive] = useState(false);
 
   return (
     <header>
@@ -34,9 +31,7 @@ const Navbar = () => {
           <li>
             <NavLink to={"/appointments"}>Appointments</NavLink>
           </li>
-          <li>
-            <NavLink to={"/notifications"}>Notifications</NavLink>
-          </li>
+         
           <li>
             <NavLink to={"/doctorapply"}>Apply for doctor</NavLink>
           </li>
@@ -44,7 +39,7 @@ const Navbar = () => {
             <NavLink to={"/#contact"}>Contact Us</NavLink>
           </li>
           <li>
-            <NavLink to={"/profile"}>Profile</NavLink>
+            <NavLink to={"/patientdetails"}>Profile</NavLink>
           </li>
           <li>
             <NavLink className="btn" onClick={()=>{ doSignOut().then(()=>{ navigate('/')})}}>

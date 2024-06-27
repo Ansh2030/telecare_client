@@ -27,9 +27,7 @@ const Footer = () => {
               <li>
                 <HashLink to={"/#contact"}>Contact Us</HashLink>
               </li>
-              <li>
-                <NavLink to={"/profile"}>Profile</NavLink>
-              </li>
+              
             </ul>
           </div>
           <div className="social">
