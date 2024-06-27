@@ -15,10 +15,10 @@ const BookAppointment = ({ setModalOpen, doctor }) => {
   });
 
   const inputChange = (e) => {
-    // const { name, value } = e.target;
+    const { name, value } = e.target;
     setFormDetails({
       ...formDetails,
-      // [name]: value,
+      [name]: value,
     });
   };
 
